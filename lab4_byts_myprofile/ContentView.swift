@@ -15,9 +15,10 @@ struct ContentView: View {
                 VStack(spacing: 20) {
                     headerView
                     informationView
+                    imageItem(icon: "pencil")
                     interestsView
                 }
-                .frame(maxWidth: 600)
+                .frame(maxWidth: 800)
                 .frame(maxWidth: .infinity)
                 .padding()
             }
@@ -111,7 +112,21 @@ struct ContentView: View {
                 )
         }
     }
-    
+    private func imageItem(
+        icon: String
+    ) -> some View {
+        VStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.title2)
+        }
+        .frame(width: 40, height: 40)
+        .foregroundStyle(.indigo)
+        //.padding(.vertical, 15)
+        .background(
+            Color.indigo.opacity(0.08),
+            in: RoundedRectangle(cornerRadius: 12)
+        )
+    }
     // Інтереси
     private var interestsView: some View {
         VStack(alignment: .leading, spacing: 15) {
